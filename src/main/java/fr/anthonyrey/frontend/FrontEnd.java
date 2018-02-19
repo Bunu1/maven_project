@@ -64,7 +64,7 @@ public class FrontEnd {
                     break;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new NullPointerException("return value is null at method AAA");
         }
     }
 
