@@ -46,11 +46,9 @@ public class FrontEnd {
                 "2) Rechercher une personne\n" +
                 "3) Quitter");
 
-
-        String prompt = getString();
-
         try {
-            if(prompt == null) throw new NullPointerException();
+            String prompt = getString();
+            if(prompt == null) {throw new NullPointerException(); }
             switch (prompt) {
                 case CHOICE_1:
                     addPerson();
@@ -66,7 +64,7 @@ public class FrontEnd {
                     break;
             }
         } catch (NullPointerException e ) {
-            throw new NullPointerException();
+            logger.info("prompt est null");
         }
     }
 
