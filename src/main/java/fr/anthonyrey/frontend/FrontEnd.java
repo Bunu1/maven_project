@@ -45,9 +45,12 @@ public class FrontEnd {
                 "1) Ajouter une personne à l'annuaire\n" +
                 "2) Rechercher une personne\n" +
                 "3) Quitter");
-        try {
-            String prompt = getString();
 
+
+        String prompt = getString();
+
+        try {
+            if(prompt == null) throw new NullPointerException();
             switch (prompt) {
                 case CHOICE_1:
                     addPerson();
@@ -62,9 +65,9 @@ public class FrontEnd {
                     logger.info(UNK_COMMAND);
                     break;
             }
-         } catch (Exception e) {
-             throw new NullPointerException("prompt is null");
-         }
+        } catch (NullPointerException e ) {
+            throw new NullPointerException();
+        }
     }
 
     private String getString(){
