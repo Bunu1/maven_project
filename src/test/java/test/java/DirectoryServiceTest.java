@@ -2,6 +2,7 @@ package test.java;
 
 import fr.anthonyrey.business.exceptions.BusinessException;
 import fr.anthonyrey.business.service.DirectoryService;
+import fr.anthonyrey.frontend.FrontEnd;
 import fr.anthonyrey.model.Person;
 import org.junit.Before;
 import org.junit.Test;
