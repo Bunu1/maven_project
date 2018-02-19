@@ -6,6 +6,7 @@ import fr.anthonyrey.model.Person;
 import fr.anthonyrey.model.PersonQuery;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class FrontEnd {
 
@@ -17,6 +18,8 @@ public class FrontEnd {
     private DirectoryService directoryService;
     private Scanner reader = new Scanner(System.in);
     private boolean running = true;
+
+    private static Logger logger = Logger.getLogger("InfoLogging");
 
     public static void main( String[] args )
     {
@@ -56,7 +59,7 @@ public class FrontEnd {
                 running = false;
                 break;
             default:
-                System.err.println(UNK_COMMAND);
+                logger.info(UNK_COMMAND);
                 break;
         }
     }
@@ -76,26 +79,26 @@ public class FrontEnd {
 
     private void getPerson() {
 
-        System.err.println("Entrez les valeurs à rechercher :");
-        System.err.println("Nom ?");
+        logger.info("Entrez les valeurs à rechercher :");
+        logger.info("Nom ?");
         String name = getString();
-        System.err.println("Prenom ?");
+        logger.info("Prenom ?");
         String surname = getString();
-        System.err.println("Numéro ?");
+        logger.info("Numéro ?");
         String phoneNumber = getString();
 
         PersonQuery p = new PersonQuery(name, surname, phoneNumber);
-        System.err.println(directoryService.getPersons(p));
+        logger.info(directoryService.getPersons(p));
     }
 
     private void addPerson() {
 
-        System.err.println("Entrez une personne dans l'annuaire :");
-        System.err.println("Nom ?");
+        logger.info("Entrez une personne dans l'annuaire :");
+        logger.info("Nom ?");
         String name = getString();
-        System.err.println("Prenom ?");
+        logger.info("Prenom ?");
         String surname = getString();
-        System.err.println("Numéro ?");
+        logger.info("Numéro ?");
         String phoneNumber = getString();
 
         Person p = new Person(name, surname, phoneNumber);
@@ -103,7 +106,7 @@ public class FrontEnd {
         try {
             directoryService.createEntry(p);
         } catch (BusinessException e) {
-            System.err.println(e.getMessage());
+            logger.info(e.getMessage());
         }
     }
 }
