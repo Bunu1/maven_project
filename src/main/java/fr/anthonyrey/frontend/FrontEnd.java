@@ -41,7 +41,7 @@ public class FrontEnd {
 
     private void whatToDo() {
 
-        System.err.println("Entrez la commande désirée : \n" +
+        logger.info("Entrez la commande désirée : \n" +
                 "1) Ajouter une personne à l'annuaire\n" +
                 "2) Rechercher une personne\n" +
                 "3) Quitter");
@@ -70,6 +70,7 @@ public class FrontEnd {
         name = reader.nextLine();
 
         //pour que sonar trouve des trucs nazes
+        // il a rien trouvé
         if(name.isEmpty()) {
             return null;
         }
