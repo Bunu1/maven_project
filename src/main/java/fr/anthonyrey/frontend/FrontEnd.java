@@ -48,19 +48,23 @@ public class FrontEnd {
 
         String prompt = getString();
 
-        switch (prompt) {
-            case CHOICE_1:
-                addPerson();
-                break;
-            case CHOICE_2:
-                getPerson();
-                break;
-            case CHOICE_3:
-                running = false;
-                break;
-            default:
-                logger.info(UNK_COMMAND);
-                break;
+        try {
+            switch (prompt) {
+                case CHOICE_1:
+                    addPerson();
+                    break;
+                case CHOICE_2:
+                    getPerson();
+                    break;
+                case CHOICE_3:
+                    running = false;
+                    break;
+                default:
+                    logger.info(UNK_COMMAND);
+                    break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
