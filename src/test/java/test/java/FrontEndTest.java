@@ -1,26 +1,23 @@
 package test.java;
 
-import fr.anthonyrey.frontend.FrontEnd;
-import fr.anthonyrey.frontend.FrontEndException;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.*;
+
 public class FrontEndTest {
-    private FrontEnd frontEnd;
-
     @Before
-    public void init() {
-        frontEnd = new FrontEnd();
+    public void setUp() throws Exception {
     }
 
-    @Test()
-    public void nominal_case() {
-        try {
-            FrontEnd.main(null);
-        } catch (NullPointerException e) {
-        }
+    @After
+    public void tearDown() throws Exception {
     }
 
-
+    @Test
+    public void main() throws Exception {
+        System.out.println("taffudgfysiudgfhg");
+    }
 
 }
