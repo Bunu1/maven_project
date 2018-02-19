@@ -42,14 +42,10 @@ public class DirectoryService {
 
         if(p.getName() == null)
             throw new BusinessException("Le nom ne doit pas être vide");
-
-        //TODO put it back so sonar stops complaining :)
-        /*
         else if (p.getPhoneNumber() == null)
             throw new BusinessException("Le numéro de téléphone ne doit pas être vide");
         else if (p.getSurname() == null)
             throw new BusinessException("Le prénom ne doit pas être vide");
-        */
     }
 
     public String getPersons(PersonQuery p) {
@@ -57,7 +53,6 @@ public class DirectoryService {
         List<Person> persons = pps.retrieve(p);
         if(persons.isEmpty())
             return null;
-            //return "Pas de résultats";
         else
            return persons.stream()
                     .map(Person::toString)

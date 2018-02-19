@@ -33,12 +33,12 @@ public class FrontEnd {
         }
 
         //sonar ne semble pas voir ça ? :D
-        //reader.close();
+        //il l'a vu
     }
 
     private void whatToDo() {
 
-        System.out.println("Entrez la commande désirée : \n" +
+        System.err.println("Entrez la commande désirée : \n" +
                 "1) Ajouter une personne à l'annuaire\n" +
                 "2) Rechercher une personne\n" +
                 "3) Quitter");
@@ -56,7 +56,7 @@ public class FrontEnd {
                 running = false;
                 break;
             default:
-                System.out.println(UNK_COMMAND);
+                System.err.println(UNK_COMMAND);
                 break;
         }
     }
@@ -66,7 +66,7 @@ public class FrontEnd {
         String name;
         name = reader.nextLine();
 
-        //pour que sonar trouve des rucs nazes
+        //pour que sonar trouve des trucs nazes
         if(name.isEmpty()) {
             return null;
         }
@@ -76,26 +76,26 @@ public class FrontEnd {
 
     private void getPerson() {
 
-        System.out.println("Entrez les valeurs à rechercher :");
-        System.out.println("Nom ?");
+        System.err.println("Entrez les valeurs à rechercher :");
+        System.err.println("Nom ?");
         String name = getString();
-        System.out.println("Prenom ?");
+        System.err.println("Prenom ?");
         String surname = getString();
-        System.out.println("Numéro ?");
+        System.err.println("Numéro ?");
         String phoneNumber = getString();
 
         PersonQuery p = new PersonQuery(name, surname, phoneNumber);
-        System.out.println(directoryService.getPersons(p));
+        System.err.println(directoryService.getPersons(p));
     }
 
     private void addPerson() {
 
-        System.out.println("Entrez une personne dans l'annuaire :");
-        System.out.println("Nom ?");
+        System.err.println("Entrez une personne dans l'annuaire :");
+        System.err.println("Nom ?");
         String name = getString();
-        System.out.println("Prenom ?");
+        System.err.println("Prenom ?");
         String surname = getString();
-        System.out.println("Numéro ?");
+        System.err.println("Numéro ?");
         String phoneNumber = getString();
 
         Person p = new Person(name, surname, phoneNumber);
@@ -103,7 +103,7 @@ public class FrontEnd {
         try {
             directoryService.createEntry(p);
         } catch (BusinessException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
     }
 }
