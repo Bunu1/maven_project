@@ -39,32 +39,28 @@ public class FrontEnd {
         //il l'a vu
     }
 
-    private void whatToDo() {
+    private void whatToDo() throws NullPointerException {
 
         logger.info("Entrez la commande désirée : \n" +
                 "1) Ajouter une personne à l'annuaire\n" +
                 "2) Rechercher une personne\n" +
                 "3) Quitter");
 
-        try {
-            String prompt = getString();
-            if(prompt == null) {throw new NullPointerException(); }
-            switch (prompt) {
-                case CHOICE_1:
-                    addPerson();
-                    break;
-                case CHOICE_2:
-                    getPerson();
-                    break;
-                case CHOICE_3:
-                    running = false;
-                    break;
-                default:
-                    logger.info(UNK_COMMAND);
-                    break;
-            }
-        } catch (NullPointerException e ) {
-            logger.info("prompt est null");
+        String prompt = getString();
+        if(prompt == null) { throw new NullPointerException(); }
+        switch (prompt) {
+            case CHOICE_1:
+                addPerson();
+                break;
+            case CHOICE_2:
+                getPerson();
+                break;
+            case CHOICE_3:
+                running = false;
+                break;
+            default:
+                logger.info(UNK_COMMAND);
+                break;
         }
     }
 
