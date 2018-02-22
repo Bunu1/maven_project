@@ -13,7 +13,7 @@ public class FrontEndTest {
     FrontEnd fe = new FrontEnd();
     @Before
     public void setUp() throws Exception {
-        String str = "bonjour";
+        String str = "3";
         InputStream is = new ByteArrayInputStream(str.getBytes("UTF-8"));
         try {
             System.setIn(is);
@@ -22,13 +22,14 @@ public class FrontEndTest {
         }
     }
 
+    /*
     @Test
-    public void main() throws Exception {
+    public void main() {
         try {
             fe.main(null);
         } catch(NullPointerException e) {
             assertTrue(true);
         }
     }
-
+    */
 }

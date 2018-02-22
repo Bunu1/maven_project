@@ -7,6 +7,7 @@
     <groupId>com.esgi.app</groupId>
     <artifactId>pom-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>pom-parent</name>
 
     <modules>
         <module>backend</module>
